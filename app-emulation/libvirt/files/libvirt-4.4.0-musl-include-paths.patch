@@ -1,0 +1,14 @@
+diff -Naur libvirt-4.4.0-original/src/storage/storage_backend_fs.c libvirt-4.4.0/src/storage/storage_backend_fs.c
+--- libvirt-4.4.0-original/src/storage/storage_backend_fs.c	2018-06-29 16:54:32.170891794 +0300
++++ libvirt-4.4.0/src/storage/storage_backend_fs.c	2018-06-29 17:17:19.484745343 +0300
+@@ -48,6 +48,10 @@
+ 
+ # include <mntent.h>
+ 
++#ifndef __GLIBC__ && defined(__linux__)
++#include <paths.h>
++#endif
++
+ struct _virNetfsDiscoverState {
+     const char *host;
+     virStoragePoolSourceList list;
