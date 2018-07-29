@@ -22,7 +22,7 @@ src_prepare() {
 
 	epatch 	"${FILESDIR}"/10-execinfo.patch\
 			"${FILESDIR}"/20-define-gnu-source.patch\
-			"${FILESDIR}"/30-linux-makefile.patch
+			"${FILESDIR}/${P}-makefile.patch"
 }
 
 src_install() {
